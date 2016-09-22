@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Text;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Drawing;
 using Halfox.Core;
+using Halfox.LongDing.Services;
 
 namespace Halfox.LongDing
 {
@@ -40,82 +42,82 @@ namespace Halfox.LongDing
             return new ImageResult(verifyImage.Image, verifyImage.ContentType);
         }
 
-        ///// <summary>
-        ///// 省列表
-        ///// </summary>
-        ///// <returns></returns>
-        //public ActionResult ProvinceList()
-        //{
-        //    List<RegionInfo> regionList = Regions.GetProvinceList();
+        /// <summary>
+        /// 省列表
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ProvinceList()
+        {
+            List<ha_regions> regionList = Regions.GetProvinceList();
 
-        //    StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
-        //    sb.Append("[");
+            sb.Append("[");
 
-        //    foreach (RegionInfo info in regionList)
-        //    {
-        //        sb.AppendFormat("{0}\"id\":\"{1}\",\"name\":\"{2}\"{3},", "{", info.RegionId, info.Name, "}");
-        //    }
+            foreach (ha_regions info in regionList)
+            {
+                sb.AppendFormat("{0}\"id\":\"{1}\",\"name\":\"{2}\"{3},", "{", info.regionid, info.name, "}");
+            }
 
-        //    if (regionList.Count > 0)
-        //        sb.Remove(sb.Length - 1, 1);
+            if (regionList.Count > 0)
+                sb.Remove(sb.Length - 1, 1);
 
-        //    sb.Append("]");
+            sb.Append("]");
 
-        //    return AjaxResult("success", sb.ToString(), true);
-        //}
+            return AjaxResult("success", sb.ToString(), true);
+        }
 
-        ///// <summary>
-        ///// 市列表
-        ///// </summary>
-        ///// <param name="provinceId">省id</param>
-        ///// <returns></returns>
-        //public ActionResult CityList(int provinceId = -1)
-        //{
-        //    List<RegionInfo> regionList = Regions.GetCityList(provinceId);
+        /// <summary>
+        /// 市列表
+        /// </summary>
+        /// <param name="provinceId">省id</param>
+        /// <returns></returns>
+        public ActionResult CityList(int provinceId = -1)
+        {
+            List<ha_regions> regionList = Regions.GetCityList(provinceId);
 
-        //    StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
-        //    sb.Append("[");
+            sb.Append("[");
 
-        //    foreach (RegionInfo info in regionList)
-        //    {
-        //        sb.AppendFormat("{0}\"id\":\"{1}\",\"name\":\"{2}\"{3},", "{", info.RegionId, info.Name, "}");
-        //    }
+            foreach (ha_regions info in regionList)
+            {
+                sb.AppendFormat("{0}\"id\":\"{1}\",\"name\":\"{2}\"{3},", "{", info.regionid, info.name, "}");
+            }
 
-        //    if (regionList.Count > 0)
-        //        sb.Remove(sb.Length - 1, 1);
+            if (regionList.Count > 0)
+                sb.Remove(sb.Length - 1, 1);
 
-        //    sb.Append("]");
+            sb.Append("]");
 
-        //    return AjaxResult("success", sb.ToString(), true);
-        //}
+            return AjaxResult("success", sb.ToString(), true);
+        }
 
-        ///// <summary>
-        ///// 县或区列表
-        ///// </summary>
-        ///// <param name="cityId">市id</param>
-        ///// <returns></returns>
-        //public ActionResult CountyList(int cityId = -1)
-        //{
-        //    List<RegionInfo> regionList = Regions.GetCountyList(cityId);
+        /// <summary>
+        /// 县或区列表
+        /// </summary>
+        /// <param name="cityId">市id</param>
+        /// <returns></returns>
+        public ActionResult CountyList(int cityId = -1)
+        {
+            List<ha_regions> regionList = Regions.GetCountyList(cityId);
 
-        //    StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
-        //    sb.Append("[");
+            sb.Append("[");
 
-        //    foreach (RegionInfo info in regionList)
-        //    {
-        //        sb.AppendFormat("{0}\"id\":\"{1}\",\"name\":\"{2}\"{3},", "{", info.RegionId, info.Name, "}");
-        //    }
+            foreach (ha_regions info in regionList)
+            {
+                sb.AppendFormat("{0}\"id\":\"{1}\",\"name\":\"{2}\"{3},", "{", info.regionid, info.name, "}");
+            }
 
-        //    if (regionList.Count > 0)
-        //        sb.Remove(sb.Length - 1, 1);
+            if (regionList.Count > 0)
+                sb.Remove(sb.Length - 1, 1);
 
-        //    sb.Append("]");
+            sb.Append("]");
 
-        //    return AjaxResult("success", sb.ToString(), true);
-        //}
+            return AjaxResult("success", sb.ToString(), true);
+        }
 
         /// <summary>
         /// ajax请求结果

@@ -13,10 +13,10 @@ namespace Halfox.LongDing
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HalfoxDb : DbContext
+    public partial class halfoxEntities : DbContext
     {
-        public HalfoxDb()
-            : base("name=HalfoxLongDing")
+        public halfoxEntities()
+            : base("name=halfoxEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace Halfox.LongDing
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<longding_cus_website_submit> longding_cus_website_submit { get; set; }
+        public virtual DbSet<ha_regions> ha_regions { get; set; }
+        public virtual DbSet<longding_users> longding_users { get; set; }
     }
 }

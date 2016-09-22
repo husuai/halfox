@@ -746,9 +746,9 @@ namespace Halfox.Core
                                 {
                                     return reader.ReadToEnd();
                                 }
-                                catch (Exception ex)
+                                catch
                                 {
-                                    return "close";
+                                    return "close:";
                                 }
 
                             }

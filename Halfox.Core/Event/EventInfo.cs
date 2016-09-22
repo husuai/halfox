@@ -94,7 +94,7 @@ namespace Halfox.Core
                     }
                     catch (Exception ex)
                     {
-                        //throw new HaException("创建事件:" + _title + "的实例失败", ex);
+                        throw new HaException("创建事件:" + _title + "的实例失败", ex);
                     }
                 }
                 return _instance;

@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5447195ab7044ce5b41a1f431daa09ad" Name="Diagram1">
-        <EntityTypeShape EntityType="Halfox.LongDing.Model.longding_cus_website_submit" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="4bbb249c59864820848b06e9ded8c78d" Name="Diagram1">
+        <EntityTypeShape EntityType="halfoxModel.ha_regions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="halfoxModel.longding_users" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

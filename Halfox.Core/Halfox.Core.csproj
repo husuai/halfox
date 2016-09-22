@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\RDBS\IRDBSStrategy\IRDBSStrategy.cs" />
+    <Compile Include="HaException.cs" />
+    <Compile Include="HaVersion.cs" />
     <Compile Include="Cache\HaCache.cs" />
     <Compile Include="Cache\CacheKeys.cs" />
     <Compile Include="Cache\CacheManager\CacheByRegex.cs" />
@@ -66,6 +69,11 @@
     <Compile Include="Config\Info\RDBSConfigInfo.cs" />
     <Compile Include="Config\Info\RedisNOSQLConfigInfo.cs" />
     <Compile Include="Config\Info\SMSConfigInfo.cs" />
+    <Compile Include="Data\HaData.cs" />
+    <Compile Include="Data\DbException.cs" />
+    <Compile Include="Data\RDBS\RDBSFields.cs" />
+    <Compile Include="Data\RDBS\RDBSHelper.cs" />
+    <Compile Include="Data\RDBS\RDBSStrategy\RDBSStrategy.cs" />
     <Compile Include="Email\HaEmail.cs" />
     <Compile Include="Email\EmailStrategy.cs" />
     <Compile Include="Email\IEmailStrategy.cs" />
@@ -90,6 +98,9 @@
     <Compile Include="SMS\HaSMS.cs" />
     <Compile Include="SMS\ISMSStrategy.cs" />
     <Compile Include="SMS\SMSStrategy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\NOSQL\INOSQLStrategy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,67 +4,151 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Halfox.LongDing.Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="longding_cus_website_submit">
+      <Schema Namespace="halfoxModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ha_regions">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="regionid" />
           </Key>
-          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="10" />
-          <Property Name="Phone" Type="varchar" MaxLength="10" />
-          <Property Name="QQ" Type="varchar" MaxLength="15" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="SubmitDate" Type="datetime" Precision="0" />
-          <Property Name="From" Type="varchar" MaxLength="100" />
-          <Property Name="Group" Type="varchar" MaxLength="50" />
-          <Property Name="Lable" Type="varchar" MaxLength="200" />
-          <Property Name="Remark" Type="varchar" MaxLength="20" />
+          <Property Name="regionid" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="spell" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="shortspell" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="displayorder" Type="int" Nullable="false" />
+          <Property Name="parentid" Type="smallint" Nullable="false" />
+          <Property Name="layer" Type="tinyint" Nullable="false" />
+          <Property Name="provinceid" Type="smallint" Nullable="false" />
+          <Property Name="provincename" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="cityid" Type="smallint" Nullable="false" />
+          <Property Name="cityname" Type="char" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="HalfoxLongDingModelStoreContainer">
-          <EntitySet Name="longding_cus_website_submit" EntityType="Self.longding_cus_website_submit" Schema="halfox" store:Type="Tables" />
+        <EntityType Name="longding_users">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="qq" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="paypassword" Type="varchar" MaxLength="50" />
+          <Property Name="salt" Type="varchar" MaxLength="10" />
+          <Property Name="nickname" Type="varchar" MaxLength="50" />
+          <Property Name="avatar" Type="varchar" MaxLength="50" />
+          <Property Name="verifyemail" Type="tinyint" />
+          <Property Name="verifymobile" Type="tinyint" />
+          <Property Name="verifywenxin" Type="tinyint" />
+          <Property Name="paycredits" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="rankcredits" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="parentid" Type="bigint" />
+          <Property Name="regionid" Type="smallint" />
+          <Property Name="typeid" Type="smallint" />
+          <Property Name="openid" Type="char" MaxLength="100" />
+          <Property Name="unionid" Type="char" MaxLength="100" />
+          <Property Name="lables" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="halfoxModelStoreContainer">
+          <EntitySet Name="ha_regions" EntityType="Self.ha_regions" Schema="halfox" store:Type="Tables" />
+          <EntitySet Name="longding_users" EntityType="Self.longding_users" Schema="halfox" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Halfox.LongDing.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="longding_cus_website_submit">
+      <Schema Namespace="halfoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ha_regions">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="regionid" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="QQ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SubmitDate" Type="DateTime" />
-          <Property Name="From" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Lable" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="regionid" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="spell" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="shortspell" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="displayorder" Type="Int32" Nullable="false" />
+          <Property Name="parentid" Type="Int16" Nullable="false" />
+          <Property Name="layer" Type="SByte" Nullable="false" />
+          <Property Name="provinceid" Type="Int16" Nullable="false" />
+          <Property Name="provincename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cityid" Type="Int16" Nullable="false" />
+          <Property Name="cityname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="HalfoxDb" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="longding_cus_website_submit" EntityType="Self.longding_cus_website_submit" />
+        <EntityType Name="longding_users">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="qq" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="paypassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="verifyemail" Type="SByte" />
+          <Property Name="verifymobile" Type="SByte" />
+          <Property Name="verifywenxin" Type="SByte" />
+          <Property Name="paycredits" Type="Decimal" />
+          <Property Name="rankcredits" Type="Decimal" />
+          <Property Name="parentid" Type="Int64" />
+          <Property Name="regionid" Type="Int16" />
+          <Property Name="typeid" Type="Int16" />
+          <Property Name="openid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="unionid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lables" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="halfoxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ha_regions" EntityType="Self.ha_regions" />
+          <EntitySet Name="longding_users" EntityType="Self.longding_users" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HalfoxLongDingModelStoreContainer" CdmEntityContainer="HalfoxDb">
-          <EntitySetMapping Name="longding_cus_website_submit">
-            <EntityTypeMapping TypeName="Halfox.LongDing.Model.longding_cus_website_submit">
-              <MappingFragment StoreEntitySet="longding_cus_website_submit">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="QQ" ColumnName="QQ" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
-                <ScalarProperty Name="From" ColumnName="From" />
-                <ScalarProperty Name="Group" ColumnName="Group" />
-                <ScalarProperty Name="Lable" ColumnName="Lable" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
+        <EntityContainerMapping StorageEntityContainer="halfoxModelStoreContainer" CdmEntityContainer="halfoxEntities">
+          <EntitySetMapping Name="ha_regions">
+            <EntityTypeMapping TypeName="halfoxModel.ha_regions">
+              <MappingFragment StoreEntitySet="ha_regions">
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="spell" ColumnName="spell" />
+                <ScalarProperty Name="shortspell" ColumnName="shortspell" />
+                <ScalarProperty Name="displayorder" ColumnName="displayorder" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="layer" ColumnName="layer" />
+                <ScalarProperty Name="provinceid" ColumnName="provinceid" />
+                <ScalarProperty Name="provincename" ColumnName="provincename" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="cityname" ColumnName="cityname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="longding_users">
+            <EntityTypeMapping TypeName="halfoxModel.longding_users">
+              <MappingFragment StoreEntitySet="longding_users">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="qq" ColumnName="qq" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="paypassword" ColumnName="paypassword" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="verifyemail" ColumnName="verifyemail" />
+                <ScalarProperty Name="verifymobile" ColumnName="verifymobile" />
+                <ScalarProperty Name="verifywenxin" ColumnName="verifywenxin" />
+                <ScalarProperty Name="paycredits" ColumnName="paycredits" />
+                <ScalarProperty Name="rankcredits" ColumnName="rankcredits" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="openid" ColumnName="openid" />
+                <ScalarProperty Name="unionid" ColumnName="unionid" />
+                <ScalarProperty Name="lables" ColumnName="lables" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -66,7 +66,7 @@ namespace Halfox.LongDing
         /// <returns></returns>
         public static int GetUidCookie()
         {
-            return TypeHelper.StringToInt(GetBMACookie("uid"), -1);
+            return TypeHelper.StringToInt(GetHaCookie("uid"), -1);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Halfox.LongDing
         /// </summary>
         public static void SetUidCookie(int uid)
         {
-            SetBMACookie("uid", uid.ToString());
+            SetHaCookie("uid", uid.ToString());
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Halfox.LongDing
         /// <returns></returns>
         public static string GetCookiePassword()
         {
-            return WebHelper.UrlDecode(GetBMACookie("password"));
+            return WebHelper.UrlDecode(GetHaCookie("password"));
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Halfox.LongDing
         /// </summary>
         public static void SetCookiePassword(string password)
         {
-            SetBMACookie("password", WebHelper.UrlEncode(AESEncrypt(password)));
+            SetHaCookie("password", WebHelper.UrlEncode(AESEncrypt(password)));
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace Halfox.LongDing
         /// </summary>
         /// <param name="key">键</param>
         /// <returns></returns>
-        public static string GetBMACookie(string key)
+        public static string GetHaCookie(string key)
         {
             return WebHelper.GetCookie("sgyp", key);
         }
@@ -146,7 +146,7 @@ namespace Halfox.LongDing
         /// </summary>
         /// <param name="key">键</param>
         /// <param name="value">值</param>
-        public static void SetBMACookie(string key, string value)
+        public static void SetHaCookie(string key, string value)
         {
             HttpCookie cookie = HttpContext.Current.Request.Cookies["sgyp"];
             if (cookie == null)
